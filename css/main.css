@@ -1,0 +1,29 @@
+body {
+  height: 100vh;
+  font-family: sans-serif;
+  margin: 0px;
+  padding: 0px;
+  background-color: #242424;
+}
+h1 {
+  display: block;
+  position: fixed;
+  height: 10%;
+  width: 100%;
+  font-size: 8vh;
+  color: white;
+  text-align: center;
+  border-bottom: 2px solid gray;
+  margin: 0px;
+  padding-top: 2vh;
+}
+#output {
+  display: inline;
+  height: 80vh;
+  width: 60%;
+  margin-top: 20vh;
+  margin-left: 20%;
+}
+.inner {
+  font-size: 8vh;
+}
