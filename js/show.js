@@ -1,6 +1,6 @@
 function globalList(){
     var req = new XMLHttpRequest();
-    req.open("get", "../lists/global.csv", true);
+    req.open("get", "lists/global.csv", true);
     req.send(null);
     req.onload = function(){
       var str = req.responseText;
