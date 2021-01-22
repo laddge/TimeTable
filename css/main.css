@@ -3,7 +3,14 @@ body {
   font-family: sans-serif;
   margin: 0px;
   padding: 0px;
-  background-color: #242424;
+  background-color: #cccccc;
+  color: #444444;
+  border-color: #444444;
+}
+.darkmode {
+  background-color: #444444;
+  color: #cccccc;
+  border-color: #cccccc;
 }
 h1 {
   display: block;
@@ -11,9 +18,8 @@ h1 {
   height: 10%;
   width: 100%;
   font-size: 8vh;
-  color: white;
   text-align: center;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid;
   margin: 0px;
   padding-top: 2vh;
 }
@@ -23,7 +29,4 @@ h1 {
   width: 60%;
   margin-top: 20vh;
   margin-left: 20%;
-}
-.inner {
-  font-size: 8vh;
 }
