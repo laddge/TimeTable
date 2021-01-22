@@ -24,7 +24,7 @@ h1 {
   padding-top: 2vh;
 }
 #output {
-  display: inline;
+  position: fixed;
   height: 80vh;
   width: 60%;
   margin-top: 20vh;
