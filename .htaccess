@@ -1,0 +1,3 @@
+<FilesMatch "\.html$">
+  AddHandler php5-script .html
+</FilesMatch>
