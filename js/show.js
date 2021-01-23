@@ -4,17 +4,22 @@ function getGlobalList(date) {
   req.send(null);
   req.onload = function(){
   	var result = convertCSVtoArray(req.responseText);
-  	var day = '休日';
+  	var onList = 0;
   	result.forEach((row, i) => {
   	  row.forEach((element, j) => {
   	    if (element === date) {
-  	      day = result[i][1];
+  	      var day = result[i][1];
+  	      document.getElementById('date').innerHTML = date + '(' + day + ')';
+  	      document.getElementById('output').innerHTML = '';
+        	getClassList(day);
+        	onList = 1;
   	    }
   	  });
   	});
-  	document.getElementById('date').innerHTML = date + '(' + day + ')';
-  	document.getElementById('output').innerHTML = '';
-  	getClassList(day);
+  	if (onList == 0) {
+    	document.getElementById('date').innerHTML = date;
+    	document.getElementById('output').innerHTML = 'データが<br>ありません';
+  	}
   }
 }
 
