@@ -7,7 +7,7 @@ function getGlobalList(date) {
   	result.forEach((row, i) => {
   	  row.forEach((element, j) => {
   	    if (element === date) {
-  	      alert(result[i][1]);
+  	      document.getElementById('date').append(date + '(' + result[i][1] + ')');
   	      getClassList(result[i][1]);
   	    }
   	  })
@@ -25,9 +25,10 @@ function getClassList(day) {
     result.forEach((row, i) => {
       row.forEach((element, j) => {
         if (element === day) {
-          alert(result[i]);
-          result[i].forEach(function (content) {
-            show(content);
+          result[i].forEach((content, cnt) => {
+            if (cnt != 0) {
+              show(content, cnt);
+            }
           })
         }
       })
@@ -44,9 +45,9 @@ function convertCSVtoArray(str){
   return result;
 }
 
-function show(content) {
+function show(content, cnt) {
   output = document.getElementById('output');
-  output.innerHTML = output.innerHTML + '<br>' + content;
+  output.innerHTML = output.innerHTML + '<tr><td width=1em>' + cnt + '</td><td>' + content + '</td></tr>';
 }
 
 getGlobalList('21/01/22');

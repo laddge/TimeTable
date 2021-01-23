@@ -12,21 +12,30 @@ body {
   color: #cccccc;
   border-color: #cccccc;
 }
+left {
+  position: fixed;
+  left: 10px;
+}
+right {
+  position: fixed;
+  right: 10px;
+}
 h1 {
   display: block;
   position: fixed;
   height: 20px;
   width: 100%;
   font-size: 18px;
-  text-align: center;
   border-bottom: 2px solid;
   margin: 0px;
-  padding-top: 2vh;
+  padding: 5px;
 }
 #output {
   position: fixed;
-  height: 80vh;
-  width: 60%;
-  margin-top: 20vh;
-  margin-left: 20%;
+  width: 30%;
+  margin-top: 35px;
+  margin-left: 35%;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
 }
