@@ -67,10 +67,25 @@ function getFormatedDate(date) {
   return yy + '/' + mm + '/' + dd;
 }
 
-var start = function() {
-  var date = new Date();
-  today = getFormatedDate(date);
+var start = function () {
+  var today = getFormatedDate(new Date());
   getGlobalList(today);
+}
+
+var forwardDate = function () {
+  var currentDate = ('20' + document.getElementById('date').innerHTML).substr(0, 10); // Only 20XX
+  var date = new Date(currentDate);
+  date.setDate(date.getDate() + 1);
+  var nextDay = getFormatedDate(date);
+  getGlobalList(nextDay);
+}
+
+var backDate = function () {
+  var currentDate = ('20' + document.getElementById('date').innerHTML).substr(0, 10); // Only 20XX
+  var date = new Date(currentDate);
+  date.setDate(date.getDate() - 1);
+  var nextDay = getFormatedDate(date);
+  getGlobalList(nextDay);
 }
 
 start();

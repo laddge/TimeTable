@@ -15,10 +15,12 @@ body {
 left {
   position: fixed;
   left: 10px;
+  text-align: left;
 }
 right {
   position: fixed;
   right: 10px;
+  text-align: right;
 }
 h1 {
   display: block;
@@ -29,6 +31,13 @@ h1 {
   border-bottom: 2px solid;
   margin: 0px;
   padding: 5px;
+}
+.button {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 35px;
+  height: 100%;
+  width: 35%;
 }
 #output {
   position: fixed;
