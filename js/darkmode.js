@@ -9,7 +9,7 @@ if(urlParam) {
     paramArray[paramItem[0]] = paramItem[1];
   }
 
-  if (paramArray.looks == 'dark') {
+  if (paramArray.theme == 'dark') {
     var docbody = document.body;
     docbody.classList.add('darkmode');
   }
