@@ -1,3 +1,4 @@
 <FilesMatch "\.html$">
   AddType application/x-httpd-php .html
 </FilesMatch>
+AddHandler php7.3-script .html
