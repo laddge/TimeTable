@@ -12,7 +12,8 @@ function getGlobalList(date) {
   	    }
   	  });
   	});
-  	document.getElementById('date').append(date + '(' + day + ')');
+  	document.getElementById('date').innerHTML = date + '(' + day + ')';
+  	document.getElementById('output').innerHTML = '';
   	getClassList(day);
   }
 }
@@ -66,6 +67,10 @@ function getFormatedDate(date) {
   return yy + '/' + mm + '/' + dd;
 }
 
-var date = new Date();
-today = getFormatedDate(date);
-getGlobalList(today);
+var start = function() {
+  var date = new Date();
+  today = getFormatedDate(date);
+  getGlobalList(today);
+}
+
+start();

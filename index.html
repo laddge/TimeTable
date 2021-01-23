@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>時間割</title>
-    <link rel="stylesheet" href="css/main.css?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>">
-    <link rel='stylesheet' href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>時間割</title>
+  <link rel="stylesheet" href="css/main.css?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>">
+  <link rel='stylesheet' href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 <body>
-  <h1 onclick="document.location.reload()">
-    <left>時間割 <i class="fas fa-redo"></i></left><right id='date'></right></right>
+  <h1 onclick="start()">
+    <left>時間割 <i class="fas fa-redo"></i></left><right id="date"></right></right>
   </h1>
   <table id="output"></table>
+  <script type="text/javascript" src="js/show.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
+  <script type="text/javascript" src="js/darkmode.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
 </body>
-<script type="text/javascript" src="js/show.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
-<script type="text/javascript" src="js/darkmode.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
 </html>
