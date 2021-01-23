@@ -4,18 +4,24 @@ function getGlobalList(date) {
   req.send(null);
   req.onload = function(){
   	var result = convertCSVtoArray(req.responseText);
+  	var day = '休日';
   	result.forEach((row, i) => {
   	  row.forEach((element, j) => {
   	    if (element === date) {
-  	      document.getElementById('date').append(date + '(' + result[i][1] + ')');
-  	      getClassList(result[i][1]);
+  	      day = result[i][1];
   	    }
-  	  })
+  	  });
   	});
+  	document.getElementById('date').append(date + '(' + day + ')');
+  	getClassList(day);
   }
 }
 
 function getClassList(day) {
+  if (day == '休日') {
+    show('休日です。', '');
+    return 0;
+  }
   var myclass = '1-1';
   var req = new XMLHttpRequest();
   req.open("get", "lists/" + myclass + ".csv", true);
@@ -50,4 +56,16 @@ function show(content, cnt) {
   output.innerHTML = output.innerHTML + '<tr><td width=1em>' + cnt + '</td><td>' + content + '</td></tr>';
 }
 
-getGlobalList('21/01/22');
+function getFormatedDate(date) {
+  var yy = date.getFullYear();
+  yy = ('0' + yy).slice(-2);
+  var mm = date.getMonth() + 1;
+  mm = ('0' + mm).slice(-2);
+  var dd = date.getDate();
+  dd = ('0' + dd).slice(-2);
+  return yy + '/' + mm + '/' + dd;
+}
+
+var date = new Date();
+today = getFormatedDate(date);
+getGlobalList(today);
