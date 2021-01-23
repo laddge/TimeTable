@@ -3,7 +3,7 @@ body {
   font-family: sans-serif;
   margin: 0px;
   padding: 0px;
-  background-color: #cccccc;
+  background-color: #dddddd;
   color: #444444;
   border-color: #444444;
 }
@@ -12,8 +12,8 @@ body {
 }
 .darkmode {
   background-color: #444444;
-  color: #cccccc;
-  border-color: #cccccc;
+  color: #dddddd;
+  border-color: #dddddd;
 }
 left {
   position: fixed;
