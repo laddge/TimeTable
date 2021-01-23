@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Time Table</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>">
     <link rel='stylesheet' href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 <body>
@@ -13,6 +13,6 @@
   </h1>
   <div id="output"></div>
 </body>
-<script type="text/javascript" src="js/show.js"></script>
-<script type="text/javascript" src="js/darkmode.js"></script>
+<script type="text/javascript" src="js/show.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
+<script type="text/javascript" src="js/darkmode.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
 </html>
