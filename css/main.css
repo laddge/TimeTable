@@ -7,6 +7,9 @@ body {
   color: #444444;
   border-color: #444444;
 }
+#version {
+  display: none;
+}
 .darkmode {
   background-color: #444444;
   color: #cccccc;

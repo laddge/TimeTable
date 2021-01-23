@@ -1,6 +1,7 @@
+var ver = document.getElementById('version').innerHTML
 function getGlobalList(date) {
   var req = new XMLHttpRequest();
-  req.open("get", "lists/global.csv", true);
+  req.open("get", "lists/global.csv?ver=" + ver, true);
   req.send(null);
   req.onload = function(){
   	var result = convertCSVtoArray(req.responseText);
@@ -30,7 +31,7 @@ function getClassList(day) {
   }
   var myclass = '1-1';
   var req = new XMLHttpRequest();
-  req.open("get", "lists/" + myclass + ".csv", true);
+  req.open("get", "lists/" + myclass + ".csv?ver=" + ver, true);
   req.send(null);
   req.onload = function() {
     var result = convertCSVtoArray(req.responseText);

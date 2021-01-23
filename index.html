@@ -8,6 +8,7 @@
   <link rel='stylesheet' href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 <body>
+  <span id="version"><?php echo(shell_exec('git rev-parse --short HEAD')); ?></span>
   <h1 onclick="start()">
     <left>時間割 <i class="fas fa-redo"></i></left><right id="date"></right>
   </h1>
