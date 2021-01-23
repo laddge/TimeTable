@@ -18,12 +18,10 @@ body {
 left {
   position: fixed;
   left: 10px;
-  text-align: left;
 }
 right {
   position: fixed;
   right: 10px;
-  text-align: right;
 }
 h1 {
   display: block;
@@ -38,14 +36,17 @@ h1 {
 .button {
   font-size: 36px;
   font-weight: bold;
-  margin-top: 35px;
-  height: 100%;
-  width: 35%;
+  margin-top: 60px;
+  height: calc(100vh - 90px);
+  width: 10vw;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
 }
 #output {
   position: fixed;
   width: 30%;
-  margin-top: 35px;
+  margin-top: 40px;
   margin-left: 35%;
   font-weight: bold;
   font-size: 18px;
