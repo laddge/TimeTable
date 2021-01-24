@@ -142,5 +142,9 @@ var backDate = function() {
   show(theDay);
 }
 
-var today = getFormatedDate(new Date());
-show(today);
+var showToday = function () {
+  var today = getFormatedDate(new Date());
+  show(today);
+}
+
+showToday();

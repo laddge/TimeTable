@@ -9,7 +9,7 @@
 </head>
 <body>
   <span id="version"><?php echo(shell_exec('git rev-parse --short HEAD')); ?></span>
-  <h1 onclick="start()">
+  <h1 onclick="showToday()">
     <left>時間割 <i class="fas fa-redo"></i></left><right id="showDate"></right>
   </h1>
   <left><table class="button" id="back" onclick="backDate()"><tr><td>&lt</td></tr></table></left>
