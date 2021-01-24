@@ -38,6 +38,7 @@ h1 {
   font-weight: bold;
   margin-top: 60px;
   height: calc(100vh - 90px);
+  max-height: calc(100vmin - 90px);
   width: 10vw;
   text-align: center;
   border: 1px solid;
