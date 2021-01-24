@@ -1,5 +1,13 @@
 var ver = document.getElementById('version').innerHTML
 var theClass = getClassName();
+var mainReq = new XMLHttpRequest();
+mainReq.open('get', 'lists/' + theClass + '/main.csv?ver=' + ver, false);
+mainReq.send(null);
+var mainCsv = convertCSVtoArray(mainReq.responseText);
+var defaultReq = new XMLHttpRequest();
+defaultReq.open('get', 'lists/' + theClass + '/default.csv?ver=' + ver, false);
+defaultReq.send(null);
+var defaultCsv = convertCSVtoArray(defaultReq.responseText);
 
 function getClassName() {
   var urlParam = location.search.substring(1);
@@ -56,16 +64,12 @@ function show(date) {
 }
 
 function mainList(date) {
-  var req = new XMLHttpRequest();
-  req.open('get', 'lists/' + theClass + '/main.csv?ver=' + ver, false);
-  req.send(null);
-  if (req.status == 404) {
+  if (mainReq.status == 404) {
     return ['NotFound', []]
   }
-  var result = convertCSVtoArray(req.responseText);
   var cnt;
   var onList = 0;
-  result.some((row, i) => {
+  mainCsv.some((row, i) => {
     row.some((element, j) => {
       if (element == date) {
         cnt = i;
@@ -77,21 +81,17 @@ function mainList(date) {
   if (onList == 0) {
     return ['', []];
   }
-  if (result[cnt].length > 2) {
-    return [result[cnt][1], result[cnt].slice(2)];
+  if (mainCsv[cnt].length > 2) {
+    return [mainCsv[cnt][1], mainCsv[cnt].slice(2)];
   } else {
-    return [result[cnt][1], []];
+    return [mainCsv[cnt][1], []];
   }
 }
 
 function defaultList(day) {
-  var req = new XMLHttpRequest();
-  req.open('get', 'lists/' + theClass + '/default.csv?ver=' + ver, false);
-  req.send(null);
-  var result = convertCSVtoArray(req.responseText);
   var cnt;
   var onList = 0;
-  result.some((row, i) => {
+  defaultCsv.some((row, i) => {
     row.some((element, j) => {
       if (element == day) {
         cnt = i;
@@ -101,7 +101,7 @@ function defaultList(day) {
     });
   });
   if (onList == 1) {
-    return result[cnt].slice(1);
+    return defaultCsv[cnt].slice(1);
   } else {
     return [];
   }
