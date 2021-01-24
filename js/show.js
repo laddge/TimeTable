@@ -1,7 +1,9 @@
 var ver = document.getElementById('version').innerHTML
+
 function getGlobalList(date) {
+  var myClass = '20-1-1';
   var req = new XMLHttpRequest();
-  req.open("get", "lists/global.csv?ver=" + ver, true);
+  req.open('get', 'lists/' + myClass + '/main.csv?ver=' + ver, true);
   req.send(null);
   req.onload = function(){
   	var result = convertCSVtoArray(req.responseText);
@@ -30,9 +32,9 @@ function getClassList(day) {
     show('休日です。', '');
     return 0;
   }
-  var myclass = '1-1';
+  var myclass = '20-1-1';
   var req = new XMLHttpRequest();
-  req.open("get", "lists/" + myclass + ".csv?ver=" + ver, true);
+  req.open('get', 'lists/' + myclass + '/default.csv?ver=' + ver, true);
   req.send(null);
   req.onload = function() {
     var result = convertCSVtoArray(req.responseText);
