@@ -6,14 +6,15 @@ function getGlobalList(date) {
   req.onload = function(){
   	var result = convertCSVtoArray(req.responseText);
   	var onList = 0;
-  	result.forEach((row, i) => {
-  	  row.forEach((element, j) => {
+  	result.some((row, i) => {
+  	  row.some((element, j) => {
   	    if (element === date) {
   	      var day = result[i][1];
   	      document.getElementById('date').innerHTML = date + '(' + day + ')';
   	      document.getElementById('output').innerHTML = '';
         	getClassList(day);
         	onList = 1;
+        	return true;
   	    }
   	  });
   	});
@@ -35,14 +36,15 @@ function getClassList(day) {
   req.send(null);
   req.onload = function() {
     var result = convertCSVtoArray(req.responseText);
-    result.forEach((row, i) => {
-      row.forEach((element, j) => {
+    result.some((row, i) => {
+      row.some((element, j) => {
         if (element === day) {
-          result[i].forEach((content, cnt) => {
+          result[i].some((content, cnt) => {
             if (cnt != 0) {
               show(content, cnt);
             }
           })
+          return true;
         }
       })
     });
