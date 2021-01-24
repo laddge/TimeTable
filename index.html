@@ -10,11 +10,11 @@
 <body>
   <span id="version"><?php echo(shell_exec('git rev-parse --short HEAD')); ?></span>
   <h1 onclick="start()">
-    <left>時間割 <i class="fas fa-redo"></i></left><right id="date"></right>
+    <left>時間割 <i class="fas fa-redo"></i></left><right id="showDate"></right>
   </h1>
-  <left><table class="button" onclick="backDate()"><tr><td>&lt</td></tr></table></left>
+  <left><table class="button" id="back" onclick="backDate()"><tr><td>&lt</td></tr></table></left>
   <table id="output"></table>
-  <right><table class="button" onclick="forwardDate()"><tr><td>&gt</td></tr></table></right>
+  <right><table class="button" id="forward" onclick="forwardDate()"><tr><td>&gt</td></tr></table></right>
   <script type="text/javascript" src="js/show.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
   <script type="text/javascript" src="js/darkmode.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
 </body>
