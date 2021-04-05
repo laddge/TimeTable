@@ -23,6 +23,7 @@ function getClassName() {
   
     return paramArray.class;
   }
+  return '21-2-1-RA'
 }
 
 function show(date) {
