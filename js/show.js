@@ -1,15 +1,16 @@
 var ver = document.getElementById('version').innerHTML
-var theClass = getClassName();
+var classId = getClassId();
+var className = getClassName(classId);
 var mainReq = new XMLHttpRequest();
-mainReq.open('get', 'lists/' + theClass + '/main.csv?ver=' + ver, false);
+mainReq.open('get', 'lists/' + classId + '/main.csv?ver=' + ver, false);
 mainReq.send(null);
 var mainCsv = convertCSVtoArray(mainReq.responseText);
 var defaultReq = new XMLHttpRequest();
-defaultReq.open('get', 'lists/' + theClass + '/default.csv?ver=' + ver, false);
+defaultReq.open('get', 'lists/' + classId + '/default.csv?ver=' + ver, false);
 defaultReq.send(null);
 var defaultCsv = convertCSVtoArray(defaultReq.responseText);
 
-function getClassName() {
+function getClassId() {
   var urlParam = location.search.substring(1);
   
   if (urlParam) {
@@ -26,9 +27,18 @@ function getClassName() {
   return '21-2-1-RA'
 }
 
+function getClassName(classId) {
+  var req = new XMLHttpRequest();
+  req.open('get', 'lists/' + classId + '/name.txt?ver=' + ver, false);
+  req.send(null);
+  return req.responseText;
+}
+
 function show(date) {
   var output = document.getElementById('output');
   var showDate = document.getElementById('showDate');
+  var showName = document.getElementById('showName');
+  showName.innerHTML = '時間割';
   var getMainList = mainList(date);
   var day = getMainList[0];
   var specialList = getMainList[1];
@@ -36,6 +46,7 @@ function show(date) {
     output.innerHTML = 'クラスが<br>登録されて<br>いません';
     return
   }
+  showName.innerHTML = className;
   document.getElementById('back').style.display = 'table';
   document.getElementById('forward').style.display = 'table';
   if (day == '') {
