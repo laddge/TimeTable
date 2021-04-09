@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>時間割</title>
-  <link rel="stylesheet" href="css/main.css?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>">
+  <link rel="stylesheet" href="css/main.css?ver=<?=shell_exec('git rev-parse --short HEAD | head -c -1')); ?>">
   <link rel='stylesheet' href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 <body>
-  <span id="version"><?php echo(shell_exec('git rev-parse --short HEAD')); ?></span>
+  <span id="version"><?=shell_exec('git rev-parse --short HEAD | head -c -1')); ?></span>
   <h1 onclick="showToday()">
     <left><span id="showName"></span> <i class="fas fa-redo"></i></left><right id="showDate"></right>
   </h1>
   <left><table class="button" id="back" onclick="backDate()"><tr><td>&lt</td></tr></table></left>
   <table id="output"></table>
   <right><table class="button" id="forward" onclick="forwardDate()"><tr><td>&gt</td></tr></table></right>
-  <script type="text/javascript" src="js/show.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
-  <script type="text/javascript" src="js/darkmode.js?ver=<?php echo(shell_exec('git rev-parse --short HEAD')); ?>"></script>
+  <script type="text/javascript" src="js/show.js?ver=<?=shell_exec('git rev-parse --short HEAD | head -c -1')); ?>"></script>
+  <script type="text/javascript" src="js/darkmode.js?ver=<?=shell_exec('git rev-parse --short HEAD | head -c -1')); ?>"></script>
 </body>
 </html>
