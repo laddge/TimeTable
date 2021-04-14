@@ -1,4 +1,3 @@
-var ver = document.getElementById('version').innerHTML
 var classId = getClassId();
 var className = getClassName(classId);
 var mainReq = new XMLHttpRequest();
