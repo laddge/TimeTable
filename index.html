@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>時間割</title>
   <script type="text/javascript">
+    var date = new Date() ;
     req = new XMLHttpRequest();
-    req.open('get', 'https://api.github.com/repos/laddge/timetable', false);
+    req.open('get', 'https://api.github.com/repos/laddge/timetable?' + date.getTime(), false);
     req.send(null);
     json = req.responseText;
     obj = JSON.parse(json);
