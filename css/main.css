@@ -3,17 +3,17 @@ body {
   font-family: sans-serif;
   margin: 0px;
   padding: 0px;
-  background-color: #dddddd;
-  color: #444444;
-  border-color: #444444;
+  background-color: #f4f5f7;
+  color: #333333;
+  border-color: #333333;
 }
 #version {
   display: none;
 }
 .darkmode {
-  background-color: #444444;
-  color: #dddddd;
-  border-color: #dddddd;
+  background-color: #333333;
+  color: #f4f5f7;
+  border-color: #f4f5f7;
 }
 left {
   position: fixed;
