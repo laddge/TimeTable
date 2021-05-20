@@ -58,14 +58,29 @@ function show(date) {
     output.innerHTML = '休日です！';
     return;
   }
-  if (specialList.length != 0) {
-    var list = specialList;
+  list = [];
+  if (specialList.length == 0) {
+    list = defaultList(day);
   } else {
-    var list = defaultList(day);
-    if (list.length == 0) {
+    defaultList(day).some((content, num) => {
+      if (specialList.length > num) {
+      if (specialList[num] == '') {
+          list.push(content);
+      } else {
+          list.push(specialList[num]);
+      }
+      } else {
+        return;
+      }
+    });
+  }
+  if (list.length == 0) {
+    if (day == '') {
       output.innerHTML = 'データが<br>ありません';
       showDate.innerHTML = date;
       return;
+    } else {
+      list = specialList;
     }
   }
   output.innerHTML = '';
@@ -81,13 +96,11 @@ function mainList(date) {
   var cnt;
   var onList = 0;
   mainCsv.some((row, i) => {
-    row.some((element, j) => {
-      if (element == date) {
-        cnt = i;
-        onList = 1;
-        return true;
-      }
-    });
+    if (row[0] == date) {
+    cnt = i;
+    onList = 1;
+    return true;
+    }
   });
   if (onList == 0) {
     return ['', []];
@@ -103,13 +116,11 @@ function defaultList(day) {
   var cnt;
   var onList = 0;
   defaultCsv.some((row, i) => {
-    row.some((element, j) => {
-      if (element == day) {
-        cnt = i;
-        onList = 1;
-        return true;
-      }
-    });
+    if (row[0] == day) {
+    cnt = i;
+    onList = 1;
+    return true;
+    }
   });
   if (onList == 1) {
     return defaultCsv[cnt].slice(1);
