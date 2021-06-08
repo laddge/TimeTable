@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>時間割</title>
+  <script type="text/javascript">
+    var date = new Date() ;
+    req = new XMLHttpRequest();
+    req.open('get', 'https://api.github.com/repos/laddge/timetable?' + date.getTime(), false);
+    req.send(null);
+    json = req.responseText;
+    obj = JSON.parse(json);
+    ver = obj.updated_at.replace(/-/g, '').replace(/:/g, '');
+    document.getElementsByTagName('head')[0].innerHTML += '<link rel="stylesheet" href="css/main.css?ver=' + ver + '">';
+  </script>
+  <link rel='stylesheet' href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+</head>
+<body>
+  <h1 onclick="showToday()">
+    <left><span id="showName"></span> <i class="fas fa-redo"></i></left><right id="showDate"></right>
+  </h1>
+  <left><table class="button" id="back" onclick="backDate()"><tr><td>&lt</td></tr></table></left>
+  <table id="output"></table>
+  <right><table class="button" id="forward" onclick="forwardDate()"><tr><td>&gt</td></tr></table></right>
+  <script type="text/javascript">
+    var showJs = new XMLHttpRequest();
+    showJs.open('GET', 'js/show.js?ver=' + ver, false);
+    showJs.send(null);
+    eval(showJs.responseText);
+    var darkModeJs = new XMLHttpRequest();
+    darkModeJs.open('GET', 'js/darkmode.js?ver=' + ver, false);
+    darkModeJs.send(null);
+    eval(darkModeJs.responseText);
+  </script>
+</body>
+</html>
